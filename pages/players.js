@@ -2,13 +2,24 @@ import { useRouter } from 'next/router'
 import Head from 'next/head'
 import Header from '@components/Header'
 import Footer from '@components/Footer'
+import { useState } from 'react'
 
 export default function Players() {
   const router = useRouter();
-  const { count } = router.query; // Get the "count" query parameter
-  const playerCount = parseInt(count, 10) || 0; // Convert to an integer or default to 0
+  const { count } = router.query;
+  const playerCount = parseInt(count, 10) || 0;
 
-  // Create an array to represent the players
+  // State to manage scores
+  const [scores, setScores] = useState({});
+
+  const handleInputChange = (event, playerId, holeIndex) => {
+    const { value } = event.target;
+    setScores((prevScores) => ({
+      ...prevScores,
+      [`player${playerId}_hole${holeIndex}`]: value,
+    }));
+  };
+
   const players = Array.from({ length: playerCount }, (_, i) => ({
     id: i + 1,
     name: `Player ${i + 1}`
@@ -48,15 +59,17 @@ export default function Players() {
                 <tr key={player.id}>
                   <td>{player.id}</td>
                   <td>{player.name}</td>
-                  <td> <input type="text" id="Hole1"> </input></td>
-                  <td> <input type="text" id="Hole2"> </input></td>
-                  <td> <input type="text" id="Hole3"> </input></td>
-                  <td> <input type="text" id="Hole4"> </input></td>
-                  <td> <input type="text" id="Hole5"> </input></td>
-                  <td> <input type="text" id="Hole6"> </input></td>
-                  <td> <input type="text" id="Hole7"> </input></td>
-                  <td> <input type="text" id="Hole8"> </input></td>
-                  <td> <input type="text" id="Hole9"> </input></td>
+                  {Array.from({ length: 9 }).map((_, holeIndex) => (
+                    <td key={holeIndex + 1}>
+                      <input 
+                        type="text" 
+                        name={`player${player.id}_hole${holeIndex + 1}`} 
+                        placeholder={`Score ${holeIndex + 1}`}
+                        value={scores[`player${player.id}_hole${holeIndex + 1}`] || ''}
+                        onChange={(e) => handleInputChange(e, player.id, holeIndex + 1)}
+                      />
+                    </td>
+                  ))}
                 </tr>
               ))}
             </tbody>
