@@ -28,59 +28,7 @@ export default function Testing() {
             <Head>
                 <title>Players Page</title>
                 <link rel="icon" href="/favicon.ico" />
-                <style>
-                    {`
-                    .responsive-table {
-                        width: 100%;
-                        border-collapse: collapse;
-                        margin: 20px 0;
-                        overflow-x: auto;
-                        display: block;
-                    }
-
-                    .responsive-table th, .responsive-table td {
-                        padding: 12px;
-                        text-align: left;
-                        border: 1px solid #ddd;
-                    }
-
-                    .responsive-table th {
-                        background-color: #f4f4f4;
-                    }
-
-                    @media (max-width: 768px) {
-                        .responsive-table thead {
-                            display: none;
-                        }
-
-                        .responsive-table, .responsive-table tbody, .responsive-table tr, .responsive-table td {
-                            display: block;
-                            width: 100%;
-                        }
-
-                        .responsive-table tr {
-                            margin-bottom: 15px;
-                            border-bottom: 2px solid #ddd;
-                        }
-
-                        .responsive-table td {
-                            text-align: right;
-                            padding-left: 50%;
-                            position: relative;
-                        }
-
-                        .responsive-table td::before {
-                            content: attr(data-label);
-                            position: absolute;
-                            left: 0;
-                            width: 45%;
-                            padding-left: 10px;
-                            font-weight: bold;
-                            text-align: left;
-                        }
-                    }
-                    `}
-                </style>
+                
             </Head>
 
             <main>
@@ -88,43 +36,28 @@ export default function Testing() {
 
                 <h2>Number of Players: {playerCount}</h2>
 
-                <table className="responsive-table">
-                    <thead>
-                        <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Hole 1</th>
-                        <th>Hole 2</th>
-                        <th>Hole 3</th>
-                        <th>Hole 4</th>
-                        <th>Hole 5</th>
-                        <th>Hole 6</th>
-                        <th>Hole 7</th>
-                        <th>Hole 8</th>
-                        <th>Hole 9</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    {players.map((player) => (
-                        <tr key ={player.id}>
-                            <td data-label="ID">{player.id}</td>
-                            <td data-label="Name">{player.name}</td>
-                            {Array.from({ length: 9 }).map((_, holeIndex) => (
-                    <td key={holeIndex + 1}>
-                      <input 
-                        type="text" 
-                        name={`player${player.id}_hole${holeIndex + 1}`} 
-                        placeholder={`Score ${holeIndex + 1}`}
-                        value={scores[`player${player.id}_hole${holeIndex + 1}`] || ''}
-                        onChange={(e) => handleInputChange(e, player.id, holeIndex + 1)}
-                      />
-                    </td>
-                  ))}
-                        </tr>
-                        
-                    ))}
-                    </tbody>
-                </table>
+                <table>
+  <tr>
+    <td><label for="surname">Surname:</label></td>
+    <td><input type="text" id="surname" name="surname"/></td>
+  </tr>
+  <tr>
+    <td><label for="othernames">Other Names:</label></td>
+    <td><input type="text" id="othernames" name="othernames"/></td>
+  </tr>
+  <tr>
+    <td><label for="email">Email:</label></td>
+    <td><input type="email" id="email" name="email"/></td>
+  </tr>
+  <tr>
+    <td><label for="phone">Phone:</label></td>
+    <td><input type="tel" id="phone" name="phone"/></td>
+  </tr>
+  <tr>
+    <td><label for="address">Address:</label></td>
+    <td><input type="text" id="address" name="address"/></td>
+  </tr>
+</table>
             </main>
 
             <Footer />
