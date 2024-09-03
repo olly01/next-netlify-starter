@@ -15,20 +15,21 @@ export default function Home() {
         <p className="description">
           Get started by editing <code>pages/index.js</code>
         </p>
-      </main>
-
-      <Footer />
-      <body>
+        <body>
         
         <div class="wrapper">
           <form action="">
             <div class ="input-box">
-              <input type="number" placeolder="Amount of players" required>
+              <input type="number" placeholder="Amount of players" required>
               </input>
             </div>
           </form>
         </div>
       </body>
+      </main>
+
+      <Footer />
+      
     </div>
   )
 }
