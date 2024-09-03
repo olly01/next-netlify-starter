@@ -34,3 +34,8 @@ code {
   justify-content: center;
   align-items: center;
 }
+/* style rules for screens between 768px and 992px */
+@media (min-width: 768px) and (max-width: 992px) { }
+
+/* style rules for screens larger than 700px OR in landscape orientation */
+@media (min-width: 700px), (orientation: landscape) { }
