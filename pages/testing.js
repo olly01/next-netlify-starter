@@ -95,8 +95,8 @@ export default function Testing() {
                     <tbody>
                     {players.map((player) => (
                         <tr key ={player.id}>
-                            <td data-label="Company">{player.id}</td>
-                            <td data-label="Contact">{player.name}</td>
+                            <td data-label="ID">{player.id}</td>
+                            <td data-label="Name">{player.name}</td>
                         </tr>
                         
                     ))}
