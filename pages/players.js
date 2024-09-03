@@ -32,6 +32,15 @@ export default function Players() {
               <tr>
                 <th>ID</th>
                 <th>Name</th>
+                <th>Hole 1</th>
+                <th>Hole 2</th>
+                <th>Hole 3</th>
+                <th>Hole 4</th>
+                <th>Hole 5</th>
+                <th>Hole 6</th>
+                <th>Hole 7</th>
+                <th>Hole 8</th>
+                <th>Hole 9</th>
               </tr>
             </thead>
             <tbody>
@@ -39,6 +48,15 @@ export default function Players() {
                 <tr key={player.id}>
                   <td>{player.id}</td>
                   <td>{player.name}</td>
+                  <td> <input type="text" id="Hole1"> </input></td>
+                  <td> <input type="text" id="Hole2"> </input></td>
+                  <td> <input type="text" id="Hole3"> </input></td>
+                  <td> <input type="text" id="Hole4"> </input></td>
+                  <td> <input type="text" id="Hole5"> </input></td>
+                  <td> <input type="text" id="Hole6"> </input></td>
+                  <td> <input type="text" id="Hole7"> </input></td>
+                  <td> <input type="text" id="Hole8"> </input></td>
+                  <td> <input type="text" id="Hole9"> </input></td>
                 </tr>
               ))}
             </tbody>
