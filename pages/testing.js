@@ -7,7 +7,10 @@ export default function Testing() {
     const router = useRouter();
     const { count } = router.query;
     const playerCount = parseInt(count, 10) || 0;
-    
+    const players = Array.from({ length: playerCount }, (_, i) => ({
+        id: i + 1,
+        name: `Player ${i + 1}`
+      }));
     return (
         <div className="container">
             <Head>
@@ -76,22 +79,27 @@ export default function Testing() {
                 <table className="responsive-table">
                     <thead>
                         <tr>
-                            <th>Company</th>
-                            <th>Contact</th>
-                            <th>Country</th>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Hole 1</th>
+                        <th>Hole 2</th>
+                        <th>Hole 3</th>
+                        <th>Hole 4</th>
+                        <th>Hole 5</th>
+                        <th>Hole 6</th>
+                        <th>Hole 7</th>
+                        <th>Hole 8</th>
+                        <th>Hole 9</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td data-label="Company">Alfreds Futterkiste</td>
-                            <td data-label="Contact">Maria Anders</td>
-                            <td data-label="Country">Germany</td>
+                    {players.map((player) => (
+                        <tr key ={player.id}>
+                            <td data-label="Company">{player.id}</td>
+                            <td data-label="Contact">{player.name}</td>
                         </tr>
-                        <tr>
-                            <td data-label="Company">Centro comercial Moctezuma</td>
-                            <td data-label="Contact">Francisco Chang</td>
-                            <td data-label="Country">Mexico</td>
-                        </tr>
+                        
+                    ))}
                     </tbody>
                 </table>
             </main>
