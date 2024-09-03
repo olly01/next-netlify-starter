@@ -38,42 +38,44 @@ export default function Players() {
         <h2>Number of Players: {playerCount}</h2>
 
         {playerCount > 0 ? (
-          <table border="1" cellPadding="10" cellSpacing="0">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Hole 1</th>
-                <th>Hole 2</th>
-                <th>Hole 3</th>
-                <th>Hole 4</th>
-                <th>Hole 5</th>
-                <th>Hole 6</th>
-                <th>Hole 7</th>
-                <th>Hole 8</th>
-                <th>Hole 9</th>
-              </tr>
-            </thead>
-            <tbody>
-              {players.map((player) => (
-                <tr key={player.id}>
-                  <td>{player.id}</td>
-                  <td>{player.name}</td>
-                  {Array.from({ length: 9 }).map((_, holeIndex) => (
-                    <td key={holeIndex + 1}>
-                      <input 
-                        type="text" 
-                        name={`player${player.id}_hole${holeIndex + 1}`} 
-                        placeholder={`Score ${holeIndex + 1}`}
-                        value={scores[`player${player.id}_hole${holeIndex + 1}`] || ''}
-                        onChange={(e) => handleInputChange(e, player.id, holeIndex + 1)}
-                      />
-                    </td>
-                  ))}
-                </tr>
+      <div class="table-responsive">
+      <table border="1" cellPadding="10" cellSpacing="0">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Hole 1</th>
+            <th>Hole 2</th>
+            <th>Hole 3</th>
+            <th>Hole 4</th>
+            <th>Hole 5</th>
+            <th>Hole 6</th>
+            <th>Hole 7</th>
+            <th>Hole 8</th>
+            <th>Hole 9</th>
+          </tr>
+        </thead>
+        <tbody>
+          {players.map((player) => (
+            <tr key={player.id}>
+              <td data-label="ID">{player.id}</td>
+              <td data-label="Name">{player.name}</td>
+              {Array.from({ length: 9 }).map((_, holeIndex) => (
+                <td key={holeIndex + 1} data-label={`Hole ${holeIndex + 1}`}>
+                  <input 
+                    type="text" 
+                    name={`player${player.id}_hole${holeIndex + 1}`} 
+                    placeholder={`Score ${holeIndex + 1}`}
+                    value={scores[`player${player.id}_hole${holeIndex + 1}`] || ''}
+                    onChange={(e) => handleInputChange(e, player.id, holeIndex + 1)}
+                  />
+                </td>
               ))}
-            </tbody>
-          </table>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
         ) : (
           <p>No players to display.</p>
         )}
