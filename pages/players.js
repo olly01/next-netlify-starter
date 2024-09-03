@@ -3,7 +3,7 @@ import Head from 'next/head'
 import Header from '@components/Header'
 import Footer from '@components/Footer'
 import { useState } from 'react'
-import styles from './Players.module.css';
+import '@styles/playerTable.css';
 export default function Players() {
   const router = useRouter();
   const { count } = router.query;
