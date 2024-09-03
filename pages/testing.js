@@ -2,8 +2,8 @@ import { useRouter } from 'next/router'
 import Head from 'next/head'
 import Header from '@components/Header'
 import Footer from '@components/Footer'
-import { useState } from 'react'
-export default function testing(){
+
+export default function Testing(){
     const router = useRouter();
     const { count } = router.query;
     const playerCount = parseInt(count, 10) || 0;
