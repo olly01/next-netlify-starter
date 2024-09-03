@@ -20,7 +20,7 @@ export default function Home() {
         <div class="wrapper">
           <form action="">
             <div class ="input-box">
-              <input type="number" placeholder="Amount of players" required>
+              <input type="text" placeholder="Amount of players" required>
               </input>
             </div>
           </form>
