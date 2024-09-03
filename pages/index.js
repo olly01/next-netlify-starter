@@ -1,8 +1,16 @@
+import { useRouter } from 'next/router'
 import Head from 'next/head'
 import Header from '@components/Header'
 import Footer from '@components/Footer'
 
 export default function Home() {
+  const router = useRouter();
+
+  const handleSubmit = (event) => {
+    event.preventDefault(); // Prevent the default form submission
+    router.push('/players'); // Navigate to the "players" page
+  }
+
   return (
     <div className="container">
       <Head>
@@ -12,23 +20,18 @@ export default function Home() {
 
       <main>
         <Header title="Welcome to my app!" />
-        
-        <body>
-        
-        <div class="wrapper">
-          <form action="">
-            <div class ="input-box">
-              <input type="text" placeholder="Amount of players" required>
-              </input>
+
+        <div className="wrapper">
+          <form onSubmit={handleSubmit}>
+            <div className="input-box">
+              <input type="text" placeholder="Amount of players" required />
             </div>
-            <button type="submit" class ="btn">Enter</button>
+            <button type="submit" className="btn">Enter</button>
           </form>
         </div>
-      </body>
       </main>
 
       <Footer />
-      
     </div>
   )
 }
