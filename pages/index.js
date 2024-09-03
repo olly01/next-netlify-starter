@@ -2,13 +2,15 @@ import { useRouter } from 'next/router'
 import Head from 'next/head'
 import Header from '@components/Header'
 import Footer from '@components/Footer'
+import { useState } from 'react'
 
 export default function Home() {
   const router = useRouter();
+  const [playerCount, setPlayerCount] = useState('');
 
   const handleSubmit = (event) => {
-    event.preventDefault(); // Prevent the default form submission
-    router.push('/players'); // Navigate to the "players" page
+    event.preventDefault();
+    router.push(`/players?count=${playerCount}`);
   }
 
   return (
@@ -24,7 +26,13 @@ export default function Home() {
         <div className="wrapper">
           <form onSubmit={handleSubmit}>
             <div className="input-box">
-              <input type="text" placeholder="Amount of players" required />
+              <input 
+                type="text" 
+                placeholder="Amount of players" 
+                required
+                value={playerCount}
+                onChange={(e) => setPlayerCount(e.target.value)}
+              />
             </div>
             <button type="submit" className="btn">Enter</button>
           </form>
