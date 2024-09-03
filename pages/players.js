@@ -3,7 +3,7 @@ import Head from 'next/head'
 import Header from '@components/Header'
 import Footer from '@components/Footer'
 import { useState } from 'react'
-import styles from '../styles/playerTable.css'
+
 export default function Players() {
   const router = useRouter();
   const { count } = router.query;
@@ -26,7 +26,7 @@ export default function Players() {
   }));
 
   return (
-    <div className={styles.container}>
+    <div className="container">
       <Head>
         <title>Players Page</title>
         <link rel="icon" href="/favicon.ico" />
@@ -38,7 +38,7 @@ export default function Players() {
         <h2>Number of Players: {playerCount}</h2>
 
         {playerCount > 0 ? (
-          <table className={styles.table}>
+          <table border="1" cellPadding="10" cellSpacing="0">
             <thead>
               <tr>
                 <th>ID</th>
