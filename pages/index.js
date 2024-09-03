@@ -10,7 +10,7 @@ export default function Home() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    router.push(`/players?count=${playerCount}`);
+    router.push(`/testing?count=${playerCount}`);
   }
 
   return (
