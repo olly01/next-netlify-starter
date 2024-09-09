@@ -5,6 +5,7 @@ import Footer from '@components/Footer'
 import { useState } from 'react'
 
 export default function Calculator(){
+    const [totalScore, setTotalScore] = useState(0);
     const calculator  = (event) => {
         event.preventDefault();
         
@@ -14,14 +15,13 @@ export default function Calculator(){
             let addition = String(i);
             val = val + addition;
             let input = document.getElementById(val).value;
-            math += Number(input);
+            math += Number(input) || 0;
           }
-        alert(`Total score: ${math}`);
+          
+          setTotalScore(math);
       }
 
-    <script>
-            
-    </script>
+    
     return(
         
         <div class = "scoring">
@@ -73,6 +73,10 @@ export default function Calculator(){
 
         </table>
         <button onClick={calculator} >Result</button>
+
+        <div className="result">
+        <h2>Total Score: {totalScore}</h2>
+      </div>
         </div>
         
         
