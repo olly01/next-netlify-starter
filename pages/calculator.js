@@ -15,7 +15,7 @@ export default function Calculator(){
             let input = document.getElementById(val).value;
             math += Number(input);
           }
-        alert(`Total score: ${totalScore}`);
+        alert(`Total score: ${math}`);
       }
 
     <script>
