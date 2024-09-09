@@ -12,7 +12,9 @@ export default function Home() {
     event.preventDefault();
     router.push(`/testing?count=${playerCount}`);
   }
-
+  const calculator  = (event) => {
+    router.push('/calculator')
+  }
   return (
     <div className="container">
       <Head>
@@ -35,7 +37,9 @@ export default function Home() {
               />
             </div>
             <button type="submit" className="btn">Enter</button>
+            
           </form>
+          <button onclick={calculator} >Calculator</button>
         </div>
       </main>
 
