@@ -35,7 +35,7 @@ code {
   align-items: center;
 }
 
-.scoring title{
+.details p{
   font: small-caps bold 1.2rem sans-serif;
   text-align: center;
 }
