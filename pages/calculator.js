@@ -7,9 +7,10 @@ import { useState } from 'react'
 export default function Calculator(){
     const calculator  = (event) => {
         event.preventDefault();
-        let val = "Hole"
+        
         let math = 0;
         for (let i = 1; i < 10; i++) {
+            let val = "Hole"
             let addition = String(i);
             val = val + addition;
             let input = document.getElementById(val).value;
