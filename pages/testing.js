@@ -4,63 +4,82 @@ import Header from '@components/Header'
 import Footer from '@components/Footer'
 import { useState } from 'react'
 
-export default function Testing() {
-    const router = useRouter();
-    const { count } = router.query;
-    const playerCount = parseInt(count, 10) || 0;
+export default function Calculator(){
+    const [totalScore, setTotalScore] = useState(0);
+    const numberDictionary = ["0","1","2","3","4","5","6","7","8","9"];
+    const calculator  = (event) => {
+        event.preventDefault();
+        let math = 0;
+        for (let i = 1; i < 6; i++) {
+            const mathHolder = []
+            let val = "Player"
+            let addition = String(i);
+            val = val + addition;
+            let scoreArray = val.split();
+            scoreArray.forEach(arrayCreator);
+            let input = mathHolder.forEach(playerAddition);
+            math += Number(input) || 0;
+          }
+          setTotalScore(math);
+        }
 
-    const [scores, setScores] = useState({});
+      function arrayCreator(Points){
+        for (let i = 1; i < numberDictionary.length(); i++) {
+            if(Points == numberDictionary(i)){
+                mathHolder.push(Points);
+            }
+        }
+      }
+      function playerAddition(score){
+        let math = 0;
+        math += Number(score);
+        return math;
+      }
 
-    const handleInputChange = (event, playerId, holeIndex) => {
-      const { value } = event.target;
-      setScores((prevScores) => ({
-        ...prevScores,
-        [`player${playerId}_hole${holeIndex}`]: value,
-      }));
-    };
-
-    const players = Array.from({ length: playerCount }, (_, i) => ({
-        id: i + 1,
-        name: `Player ${i + 1}`
-      }));
-    return (
-        <div className="container">
-            <Head>
-                <title>Players Page</title>
-                <link rel="icon" href="/favicon.ico" />
-                
-            </Head>
-
-            <main>
-                <Header title="Player Information" />
-
-                <h2>Number of Players: {playerCount}</h2>
-
-                <table>
-  <tr>
-    <td><label for="surname">Surname:</label></td>
-    <td><input type="text" id="surname" name="surname"/></td>
-  </tr>
-  <tr>
-    <td><label for="othernames">Other Names:</label></td>
-    <td><input type="text" id="othernames" name="othernames"/></td>
-  </tr>
-  <tr>
-    <td><label for="email">Email:</label></td>
-    <td><input type="email" id="email" name="email"/></td>
-  </tr>
-  <tr>
-    <td><label for="phone">Phone:</label></td>
-    <td><input type="tel" id="phone" name="phone"/></td>
-  </tr>
-  <tr>
-    <td><label for="address">Address:</label></td>
-    <td><input type="text" id="address" name="address"/></td>
-  </tr>
-</table>
-            </main>
-
-            <Footer />
+    return(
+        <div class = "scoring">
+        <Head>
+            <title>Golf Calculator</title>
+        </Head>
+        <div class ="details">
+        <Header title="Welcome to my app!" />
+        <p>Enter your score of each hole in each input form</p>
         </div>
+        
+        <table>
+        <tr>
+            <td>Player 1</td>
+            <td><input type="text" id="Player1" name="Player1"/></td>
+        </tr>
+        <tr>
+            <td>Player 2</td>
+            <td><input type="text" id="Player2" name="Player2"/></td>
+        </tr>
+        <tr>
+            <td>Player 3</td>
+            <td><input type="text" id="Player3" name="Player3"/></td>
+        </tr>
+        <tr>
+            <td>Player 4</td>
+            <td><input type="text" id="Player4" name="Player4"/></td>
+        </tr>
+        <tr>
+            <td>Player 5</td>
+            <td><input type="text" id="Player5" name="Player5"/></td>
+        </tr>
+        
+
+        </table>
+        <button onClick={calculator} >Result</button>
+
+        <div className="result">
+        <h2>Total Score: {totalScore}</h2>
+      </div>
+        </div>
+        
+        
+        
     )
+        
+    
 }
