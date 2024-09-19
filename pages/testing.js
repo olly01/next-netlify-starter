@@ -7,12 +7,13 @@ import { useState } from 'react'
 export default function Calculator(){
     const [totalScore, setTotalScore] = useState(0);
     const numberDictionary = ["0","1","2","3","4","5","6","7","8","9"];
+    
     const calculator  = (event) => {
         event.preventDefault();
         let math = 0;
         for (let i = 1; i < 6; i++) {
-            const mathHolder = []
-            let val = "Player"
+            const mathHolder = [];
+            let val = "Player";
             let addition = String(i);
             val = val + addition;
             let scoreArray = val.split();
@@ -27,12 +28,15 @@ export default function Calculator(){
         for (let i = 1; i < numberDictionary.length(); i++) {
             if(Points == numberDictionary(i)){
                 mathHolder.push(Points);
+                console.log(mathHolder(i));
             }
         }
       }
+
       function playerAddition(score){
         let math = 0;
         math += Number(score);
+        console.log(math);
         return math;
       }
 
